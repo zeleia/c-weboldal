@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minta</title>
+</head>
+<body>
+<a href="../weboldal/index.html">Vissza</a><br>
+#include "lineedit.h"<br>
+#include &ltalgorithm&gt<br>
+#include &ltiostream&gt<br>
+#include &ltiterator&gt<br>
+#include &ltlist&gt<br>
+#include &ltstring&gt<br>
+#include &ltvector&gt<br>
+const int max = 1000;<br>
+int main() {<br>
+int your_mark = 1;<br>
+// 2-es<br>
+line_editor&ltstd::vector&ltint&gt, int&gt lev;<br>
+for (int i = 0; i &lt max; ++i) {<br>
+lev.press(i);<br>
+lev.home();<br>
+lev.press(i);<br>
+}<br>
+std::vector&ltint&gt v = lev.enter();<br>
+line_editor&ltstd::list&ltdouble&gt, double&gt lel;<br>
+lel.press(4.8);<br>
+lel.home();<br>
+lel.press(1.1);<br>
+std::list&ltdouble&gt c = lel.enter();<br>
+line_editor&ltstd::string, char&gt les;<br>
+les.press('W');<br>
+les.press('o');<br>
+les.press('r');<br>
+les.press('l');<br>
+les.press('d');<br>
+les.home();<br>
+les.press('H');<br>
+les.press('e');<br>
+les.press('l');<br>
+les.press('l');<br>
+les.press('o');<br>
+std::string s = les.enter();<br>
+if ("HelloWorld" == s && "" == les.enter() && 2.2 &gt *(c.begin()) &&<br>
+2 * max == v.size() && max - 1 == v[0]) {<br>
+your_mark = c.size();<br>
+}<br>
+<br>
+//3-as<br>
+<br>
+les.press('H');<br>
+les.press('e');<br>
+les.press('l');<br>
+les.press('l');<br>
+les.press('o');<br>
+les.home();<br>
+les.insert();<br>
+les.press('H');<br>
+les.press('a');<br>
+s = les.enter();<br>
+for (int i = 0; i &lt max; ++i) {<br>
+lev.press(2);<br>
+}<br>
+lev.home();<br>
+lev.insert();<br>
+for (int i = 0; i &lt max; ++i) {<br>
+lev.press(1);<br>
+}<br>
+v = lev.enter();<br>
+lel.press(7.9);<br>
+lel.press(1.2);<br>
+lel.home();<br>
+lel.insert();<br>
+lel.press(1.5);<br>
+lel.insert();<br>
+lel.press(3.7);<br>
+c = lel.enter();<br>
+if (1.7 &gt c.front() && 1.3 &lt c.front() && v[max / 2] == v[max / 5] &&<br>
+1.4 &gt c.back() && 1U * max == v.size() && "Hallo" == s &&<br>
+1 == v[max / 4]) {<br>
+your_mark = c.size();<br>
+}<br>
+<br>
+// 4-es<br>
+<br>
+line_editor&ltstd::vector&ltint&gt&gt llev;<br>
+llev.press(3.3);<br>
+llev.press(1.1);<br>
+llev.home();<br>
+llev.del();<br>
+std::vector&ltint&gt lv = llev.enter();<br>
+line_editor&ltstd::string&gt lles;<br>
+lles.press('J');<br>
+lles.press('a');<br>
+lles.press('v');<br>
+lles.press('a');<br>
+lles.backspace();<br>
+lles.backspace();<br>
+std::string f = lles.enter();<br>
+if ("Ja" == f && lv[0] &lt 1.3) {<br>
+your_mark += lv.size();<br>
+}<br>
+<br>
+// 5-os<br>
+line_editor&ltstd::list&ltint&gt&gt lle;<br>
+lle.press(3);<br>
+lle.home();<br>
+lle.insert();<br>
+llev.press(8);<br>
+llev.press(2);<br>
+llev.home();<br>
+lle.swap(llev);<br>
+lle.press(1);<br>
+std::list&ltint&gt cl = lle.enter();<br>
+v = llev.enter();<br>
+if (1 == cl.front() && cl.size() &gt v.size() && 3 == v[0]) {<br>
+your_mark += v.size();<br>
+}<br>
+std::cout &lt&lt "Your mark is " &lt&lt your_mark;<br>
+std::endl(std::cout);<br>
+}<br>
+</body>
+</html>

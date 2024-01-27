@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+</head>
+
+<body>
+<a href="../weboldal/index.html">Vissza</a><br>
+#ifndef LINEEDIT_H<br>
+#define LINEEDIT_H<br>
+<br>
+#include &ltlist&gt<br>
+#include &ltalgorithm&gt<br>
+<br>
+template &lttypename Cont, typename CharT=typename Cont::value_type&gt<br>
+class line_editor {<br>
+std::list&ltCharT#gt line;<br>
+typename std::list&ltCharT#gt::iterator it;<br>
+bool insert_mode;<br>
+public:<br>
+line_editor() : it(line.end()), insert_mode(false) {}<br>
+void home() {<br>
+it = line.begin();<br>
+}<br>
+void press(CharT c){<br>
+if(insert_mode && it != line.end()){<br>
+*it = c;<br>
+} else {<br>
+it = line.insert(it,c);<br>
+}<br>
+++it;<br>
+}<br>
+Cont enter(){<br>
+Cont result(line.begin(),line.end());<br>
+line.clear();<br>
+it = line.end();<br>
+return result;<br>
+}<br>
+void insert(){<br>
+insert_mode = !insert_mode;<br>
+}<br>
+void del(){<br>
+it = line.erase(it);<br>
+}<br>
+void backspace(){<br>
+--it;<br>
+it = line.erase(it);<br>
+}<br>
+template &lttypename OtherCont, typename OtherCharT&gt<br>
+void swap(line_editor&ltOtherCont, OtherCharT#gt &other){<br>
+std::swap(line,other.line);<br>
+std::swap(it,other.it);<br>
+std::swap(insert_mode,other.insert_mode);<br>
+}<br>
+<br>
+template &lttypename OtherCont, typename OtherCharT&gt<br>
+friend class line_editor;<br>
+};<br>
+<br>
+#endif<br>
+</body>
+
+</html>
